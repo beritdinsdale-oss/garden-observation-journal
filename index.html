@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Garden Observation Journal</title>
+  <meta name="description" content="A private garden observation journal for an asynchronous course.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to journal entry</a>
+<header class="site-header">
+  <div>
+    <p id="course-title" class="eyebrow"></p>
+    <h1 id="journal-title">Garden Observation Journal</h1>
+    <p id="journal-subtitle"></p>
+  </div>
+  <div class="header-actions">
+    <span id="save-status" role="status" aria-live="polite">Loading journal…</span>
+    <button class="button light" id="print-top" type="button">Print journal</button>
+  </div>
+</header>
+
+<div id="loading" class="loading" role="status">Loading journal content…</div>
+<div id="error" class="error" hidden></div>
+
+<main id="main" class="app" hidden>
+  <aside class="sidebar" aria-label="Journal sections">
+    <h2>My field notebook</h2>
+    <p>Select a section. Entries save automatically in this browser.</p>
+    <nav><ol id="nav-list"></ol></nav>
+    <div class="privacy"><strong>Private and ungraded</strong><br>Your entries are not sent to Canvas.</div>
+  </aside>
+
+  <section class="workspace">
+    <div class="mobile-picker">
+      <label for="section-picker">Choose a section</label>
+      <select id="section-picker"></select>
+    </div>
+
+    <section id="welcome" class="panel">
+      <p class="kicker">Welcome</p>
+      <h2 id="welcome-heading"></h2>
+      <div id="welcome-text"></div>
+      <button id="start" class="button primary" type="button">Begin my journal</button>
+      <details>
+        <summary>How saving, backup, and printing work</summary>
+        <ul>
+          <li>Writing is saved on this device and browser.</li>
+          <li>Use Download backup before changing devices or clearing browser data.</li>
+          <li>Print journal can also be used to save a PDF.</li>
+        </ul>
+      </details>
+    </section>
+
+    <form id="journal-form"></form>
+
+    <section id="summary" class="panel" hidden>
+      <p class="kicker">Journal patterns</p>
+      <h2>My Observation Summary</h2>
+      <p>This summary gathers the checklist items you selected throughout the course.</p>
+      <div id="summary-content"></div>
+    </section>
+
+    <section class="panel tools">
+      <h2>Journal tools</h2>
+      <div class="button-row">
+        <button id="print-bottom" class="button primary" type="button">Print journal</button>
+        <button id="download" class="button" type="button">Download backup</button>
+        <label class="button" for="restore">Restore backup</label>
+        <input id="restore" type="file" accept=".json,application/json">
+        <button id="clear" class="button danger" type="button">Clear entries</button>
+      </div>
+      <p class="small">For reliable printing and browser storage, open the journal in a new tab when possible.</p>
+    </section>
+  </section>
+</main>
+
+<footer><p id="footer-text"></p></footer>
+<script src="app.js"></script>
+</body>
+</html>
