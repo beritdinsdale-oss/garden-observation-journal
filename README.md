@@ -46,3 +46,18 @@ For the cleanest update, replace the repository with:
   - canvas-links.csv
 
 The query versions on app.js/styles.css are intentional cache-busters.
+
+
+## Illustrated field-notebook visual refresh
+This revision keeps the activity-by-activity navigation and journal behavior, but changes the presentation to match the more playful course activities:
+- botanical framing
+- textured field-notebook paper
+- warm illustrated header
+- taped-note welcome page
+- colorful module groups
+- rounded, varied notebook-style journal cards
+- playful selection states
+- serif display typography for a handcrafted journal feel
+- decorative field-note divider and floral details
+
+No changes were made to the autosave, backup, restore, print, or interview-to-journal handoff logic.
