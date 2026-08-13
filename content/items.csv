@@ -10,51 +10,36 @@ my-garden,checklist,nearby-space,Nearby park or natural area,,8
 my-garden,prompt,garden-description,Describe the place you will observe.,"Include useful details such as sun, shade, slope, containers, beds, or surrounding habitat.",20
 my-garden,prompt,garden-goals,What are your gardening or learning goals?,,21
 my-garden,prompt,baseline,What changes have you already noticed?,"Think about seasons, temperature, rainfall, plants, wildlife, pests, or growing conditions.",22
-weather-climate,checklist,extreme-heat,Extreme heat or unusually hot conditions,"For example: leaf scorch, wilting, sunscald, faster drying soil, or changes in flowering or fruiting.",1
-weather-climate,checklist,heavy-rain,Heavy rain or unusually intense precipitation,"For example: ponding, runoff, erosion, saturated soil, plant damage, or disease pressure.",2
-weather-climate,checklist,dry-conditions,Extended dry conditions or drought stress,"For example: rapidly drying soil, irrigation needs, plant stress, or reduced growth.",3
-weather-climate,checklist,freezing-rain,"Freezing rain, ice, or winter damage","For example: broken branches, ice loading, damaged buds, or delayed recovery.",4
-weather-climate,checklist,seasonal-timing,A shift in seasonal timing,"For example: earlier bloom, later frost, longer warm periods, or changes in when rain arrives.",5
-weather-climate,checklist,none,No obvious weather- or climate-related change,,6
-weather-climate,prompt,local-signal,Which climate or extreme-weather trend from the activity seems most relevant to your garden or observation space?,"Consider extreme heat, heavier precipitation, dry conditions or drought, and freezing rain or ice. You do not need to choose the trend with the strongest evidence overall—choose the one that seems most important where you garden.",20
-weather-climate,prompt,evidence-connection,What did you observe that could be affected by this trend?,"Describe a plant response, soil condition, water pattern, seasonal change, or other garden observation. One event by itself does not prove a long-term climate trend.",21
-weather-climate,prompt,future-change,What did the activity show about how this hazard may change in the future?,"Summarize the direction of change you saw in the data—for example, more frequent or intense heat, heavier precipitation, or a less certain future trend for freezing rain and ice.",22
-weather-climate,prompt,certainty,"How certain is the science about this future trend, and why does that matter for how you interpret it?","Use the certainty information from the activity. A lower-certainty projection can still matter for garden planning, but it should not be treated as equally well established as a high-certainty trend.",23
-weather-climate,prompt,watch-next,What will you keep watching in your garden as the seasons change?,"Choose one or two observations you could revisit, such as heat stress, soil drying, heavy-rain impacts, winter ice damage, or seasonal timing.",24
-biodiversity,checklist,pollinators,Pollinators,,1
-biodiversity,checklist,other-insects,Other insects or spiders,,2
-biodiversity,checklist,birds,Birds,,3
-biodiversity,checklist,other-animals,"Mammals, reptiles, or amphibians",,4
-biodiversity,checklist,native-plants,Native plants,,5
-biodiversity,checklist,soil-life,Fungi or visible soil life,,6
-biodiversity,prompt,living-things,"What plants, insects, birds, or other living things did you notice?",,20
-biodiversity,prompt,relationships,What relationships did you notice?,"For example: pollinators visiting flowers, birds feeding, or plants providing shelter.",21
-biodiversity,prompt,try-next,What biodiversity question will you keep observing?,,22
-soil,checklist,mulch,Mulch or plant cover,,1
-soil,checklist,bare-soil,Bare soil,,2
-soil,checklist,compaction,Compacted soil,,3
-soil,checklist,earthworms,Earthworms or other soil life,,4
-soil,checklist,organic-matter,Visible organic matter,,5
-soil,checklist,erosion,Erosion or runoff,,6
-soil,prompt,soil-comparison,How did the soil differ between the two locations?,,20
-soil,prompt,soil-life,What signs of soil life or soil health did you notice?,,21
-soil,prompt,try-next,What will you observe again later?,,22
-water,checklist,ponding,Ponding or standing water,,1
-water,checklist,runoff,Runoff,,2
-water,checklist,fast-drying,Areas that dry quickly,,3
-water,checklist,slow-drying,Areas that stay moist,,4
-water,checklist,plant-stress,Plants showing water stress,,5
-water,checklist,irrigation,Uneven irrigation coverage,,6
-water,prompt,water-movement,How does water move through or across this space?,,20
-water,prompt,moisture-patterns,"Where does soil stay moist longest, and where does it dry first?",,21
-water,prompt,try-next,"What will you observe after the next rain, irrigation, or hot period?",,22
+module-1,heading,m1-observation-heading,Weather and Climate Observations,,1
+module-1,prompt,m1-observation,What did you observe in your garden or another familiar outdoor space?,"Record a weather condition, seasonal cue, plant response, or other observation that stood out to you.",2
+module-1,prompt,m1-weather-climate,"Which part of your observation describes short-term weather, and which part might require a longer climate record to understand?",,3
+module-1,prompt,m1-watch,What would you like to keep observing as the course continues?,,4
+module-2,heading,tracking-data-heading,Tracking Climate Data,Complete this entry after exploring a weather station near you.,1
+module-2,prompt,tracking-station,Station or place I explored:,,2
+module-2,prompt,tracking-pattern,One long-term pattern I noticed:,"Describe something that appears to be changing, staying similar, or varying over time.",3
+module-2,prompt,tracking-watch,One garden condition I want to keep watching:,,4
+module-2,heading,extreme-weather-heading,Extreme Weather and Climate,Complete this entry after the extreme-weather activity.,10
+module-2,prompt,extreme-relevant,The climate or extreme-weather trend that seems most relevant to my garden:,"Consider extreme heat, heavier precipitation, dry conditions or drought, and freezing rain or ice.",11
+module-2,prompt,extreme-future,What the evidence suggests about its future:,"Summarize the direction of change and, where relevant, how certain the science is.",12
+module-2,prompt,extreme-watch,Something I want to watch for in my garden:,,13
+module-2,heading,memory-evidence-heading,Climate Memory + Evidence,Complete this entry after comparing a personal observation or interview with climate records.,20
+module-2,prompt,memory-observation,The observation I investigated:,,21
+module-2,prompt,memory-data,What I found in the climate data:,Include one useful piece of evidence or a pattern you found.,22
+module-2,checklist,memory-supported,Mostly supported the observation,,23
+module-2,checklist,memory-mixed,The picture was mixed,,24
+module-2,checklist,memory-unclear,I could not find enough evidence,,25
+module-2,prompt,memory-surprise,"What surprised me, or what do I still wonder?",,26
+module-3,heading,m3-placeholder,Module 3 activity entries,Activity-specific journal prompts will go here.,1
+module-3,prompt,m3-notes,Notes I want to keep from this module:,,2
+module-4,heading,m4-placeholder,Module 4 activity entries,Activity-specific journal prompts will go here.,1
+module-4,prompt,m4-notes,Notes I want to keep from this module:,,2
 adaptation,checklist,shade,Shade or heat protection,,1
 adaptation,checklist,water-use,Water use or irrigation,,2
 adaptation,checklist,soil-care,Soil care,,3
 adaptation,checklist,biodiversity-support,Habitat or biodiversity support,,4
 adaptation,checklist,plant-choice,Plant selection,,5
 adaptation,checklist,timing-practices,Timing or gardening practices,,6
-adaptation,prompt,pattern,What pattern or priority stands out across your observations?,,20
+adaptation,prompt,pattern,What pattern or priority stands out across your module entries?,,20
 adaptation,prompt,possible-change,What small adaptation might you try?,,21
 adaptation,prompt,evidence,What observation or course idea supports this choice?,,22
 adaptation,prompt,measure,How will you know whether the change is helping?,,23

@@ -1,0 +1,15 @@
+.activity-entry-heading{
+  margin:2rem 0 1rem;
+  padding:1rem 1.15rem;
+  border-radius:18px;
+  background:#eef7f8;
+  border-left:6px solid #176d7d;
+}
+.activity-entry-heading h3{
+  margin:0;
+  font-size:1.35rem;
+}
+.activity-entry-heading p{
+  margin:.35rem 0 0;
+  color:#53676d;
+}

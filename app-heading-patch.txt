@@ -1,0 +1,18 @@
+/* MODULE SUBHEADING SUPPORT
+Add this case wherever app.js renders items by item_type:
+
+if (item.item_type === "heading") {
+  const section = document.createElement("section");
+  section.className = "activity-entry-heading";
+  const h3 = document.createElement("h3");
+  h3.textContent = item.label;
+  section.appendChild(h3);
+  if (item.help_text) {
+    const p = document.createElement("p");
+    p.textContent = item.help_text;
+    section.appendChild(p);
+  }
+  container.appendChild(section);
+  return;
+}
+*/
