@@ -10,15 +10,17 @@ my-garden,checklist,nearby-space,Nearby park or natural area,,8
 my-garden,prompt,garden-description,Describe the place you will observe.,"Include useful details such as sun, shade, slope, containers, beds, or surrounding habitat.",20
 my-garden,prompt,garden-goals,What are your gardening or learning goals?,,21
 my-garden,prompt,baseline,What changes have you already noticed?,"Think about seasons, temperature, rainfall, plants, wildlife, pests, or growing conditions.",22
-weather-climate,checklist,heat,Heat or sun stress,,1
-weather-climate,checklist,cold,Cold or frost effects,,2
-weather-climate,checklist,wind,Wind exposure or damage,,3
-weather-climate,checklist,rain,Recent rain or unusual dryness,,4
-weather-climate,checklist,timing,A seasonal timing change,,5
-weather-climate,checklist,none,No obvious weather-related change,,6
-weather-climate,prompt,changes-this-season,What changes have you noticed this season?,,20
-weather-climate,prompt,weather-or-pattern,"Which observations may reflect short-term weather, and which might be part of a longer pattern?",,21
-weather-climate,prompt,try-next,What will you watch before the next module?,,22
+weather-climate,checklist,extreme-heat,Extreme heat or unusually hot conditions,"For example: leaf scorch, wilting, sunscald, faster drying soil, or changes in flowering or fruiting.",1
+weather-climate,checklist,heavy-rain,Heavy rain or unusually intense precipitation,"For example: ponding, runoff, erosion, saturated soil, plant damage, or disease pressure.",2
+weather-climate,checklist,dry-conditions,Extended dry conditions or drought stress,"For example: rapidly drying soil, irrigation needs, plant stress, or reduced growth.",3
+weather-climate,checklist,freezing-rain,"Freezing rain, ice, or winter damage","For example: broken branches, ice loading, damaged buds, or delayed recovery.",4
+weather-climate,checklist,seasonal-timing,A shift in seasonal timing,"For example: earlier bloom, later frost, longer warm periods, or changes in when rain arrives.",5
+weather-climate,checklist,none,No obvious weather- or climate-related change,,6
+weather-climate,prompt,local-signal,Which climate or extreme-weather trend from the activity seems most relevant to your garden or observation space?,"Consider extreme heat, heavier precipitation, dry conditions or drought, and freezing rain or ice. You do not need to choose the trend with the strongest evidence overall—choose the one that seems most important where you garden.",20
+weather-climate,prompt,evidence-connection,What did you observe that could be affected by this trend?,"Describe a plant response, soil condition, water pattern, seasonal change, or other garden observation. One event by itself does not prove a long-term climate trend.",21
+weather-climate,prompt,future-change,What did the activity show about how this hazard may change in the future?,"Summarize the direction of change you saw in the data—for example, more frequent or intense heat, heavier precipitation, or a less certain future trend for freezing rain and ice.",22
+weather-climate,prompt,certainty,"How certain is the science about this future trend, and why does that matter for how you interpret it?","Use the certainty information from the activity. A lower-certainty projection can still matter for garden planning, but it should not be treated as equally well established as a high-certainty trend.",23
+weather-climate,prompt,watch-next,What will you keep watching in your garden as the seasons change?,"Choose one or two observations you could revisit, such as heat stress, soil drying, heavy-rain impacts, winter ice damage, or seasonal timing.",24
 biodiversity,checklist,pollinators,Pollinators,,1
 biodiversity,checklist,other-insects,Other insects or spiders,,2
 biodiversity,checklist,birds,Birds,,3
