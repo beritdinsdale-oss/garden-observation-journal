@@ -1,34 +1,48 @@
-# Garden Observation Journal — module-based restructure
+# Garden Observation Journal — activity-by-activity field notebook
 
-This package reorganizes the journal around COURSE MODULES rather than topic categories.
+This revision changes the journal navigation so a learner opens ONE activity entry at a time.
 
-## New navigation
+## My field notebook navigation
+
+- Welcome
 - About My Garden
-- Module 1 — Observing Weather and Climate
-- Module 2 — Tracking Climate Change
+- Module 1
+  - Weather and Climate Observations
+- Module 2
+  - Tracking Climate Data
+  - Extreme Weather and Climate
+  - Climate Memory + Evidence
 - Module 3
+  - Module 3 activity entries
 - Module 4
+  - Module 4 activity entries
 - Adaptation Plan
 - Final Reflection
+- Observation Summary
 
-## Module 2 activity subheadings
-1. Tracking Climate Data
-2. Extreme Weather and Climate
-3. Climate Memory + Evidence
+Module labels are navigation group headings. Each activity underneath is independently clickable.
 
-Each subsection contains only the few responses worth carrying forward from that activity.
+## Important behavior
 
-## Important
-The existing journal app was originally built around `prompt` and `checklist` item types.
-This redesign introduces a new `heading` item type so activity names can appear as true
-subheadings inside a module page.
+- Only the selected activity's prompts appear in the workspace.
+- Learners no longer see every Module 2 journal entry on one page.
+- Existing local autosave, backup, restore, printing, and optional photo support remain.
+- The Climate Memory + Evidence handoff is preserved. The interview activity opens that exact entry and fills transferred responses automatically.
+- URL hashes now identify activity pages, e.g.
+  `#module-2--memory-evidence-heading`.
 
-Included:
-- content/sections.csv
-- content/items.csv
-- app-heading-patch.txt
-- activity-heading-styles.css
+## Upload
 
-Before deploying, the heading rendering patch and CSS need to be incorporated into the
-journal's existing app.js/styles.css. This package is therefore a content + implementation
-update, not just a CSV drop-in replacement.
+For the cleanest update, replace the repository with:
+
+- index.html
+- app.js
+- styles.css
+- README.md
+- content/
+  - sections.csv
+  - items.csv
+  - settings.csv
+  - canvas-links.csv
+
+The query versions on app.js/styles.css are intentional cache-busters.

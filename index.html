@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Garden Observation Journal</title>
   <meta name="description" content="A private garden observation journal for an asynchronous course.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to journal entry</a>
@@ -25,16 +25,16 @@
 <div id="error" class="error" hidden></div>
 
 <main id="main" class="app" hidden>
-  <aside class="sidebar" aria-label="Journal sections">
+  <aside class="sidebar" aria-label="My field notebook">
     <h2>My field notebook</h2>
-    <p>Select a section. Entries save automatically in this browser.</p>
-    <nav><ol id="nav-list"></ol></nav>
+    <p>Select an activity. Entries save automatically in this browser.</p>
+    <nav id="notebook-nav"></nav>
     <div class="privacy"><strong>Private and ungraded</strong><br>Your entries are not sent to Canvas.</div>
   </aside>
 
   <section class="workspace">
     <div class="mobile-picker">
-      <label for="section-picker">Choose a section</label>
+      <label for="section-picker">Choose a journal entry</label>
       <select id="section-picker"></select>
     </div>
 
@@ -58,7 +58,7 @@
     <section id="summary" class="panel" hidden>
       <p class="kicker">Journal patterns</p>
       <h2>My Observation Summary</h2>
-      <p>This summary gathers the checklist items you selected throughout the course.</p>
+      <p>This summary gathers selected observations from throughout the course.</p>
       <div id="summary-content"></div>
     </section>
 
@@ -77,6 +77,6 @@
 </main>
 
 <footer><p id="footer-text"></p></footer>
-<script src="app.js"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>

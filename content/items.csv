@@ -10,7 +10,7 @@ my-garden,checklist,nearby-space,Nearby park or natural area,,8
 my-garden,prompt,garden-description,Describe the place you will observe.,"Include useful details such as sun, shade, slope, containers, beds, or surrounding habitat.",20
 my-garden,prompt,garden-goals,What are your gardening or learning goals?,,21
 my-garden,prompt,baseline,What changes have you already noticed?,"Think about seasons, temperature, rainfall, plants, wildlife, pests, or growing conditions.",22
-module-1,heading,m1-observation-heading,Weather and Climate Observations,,1
+module-1,heading,m1-observation-heading,Weather and Climate Observations,Complete this entry after the related Module 1 activity.,1
 module-1,prompt,m1-observation,What did you observe in your garden or another familiar outdoor space?,"Record a weather condition, seasonal cue, plant response, or other observation that stood out to you.",2
 module-1,prompt,m1-weather-climate,"Which part of your observation describes short-term weather, and which part might require a longer climate record to understand?",,3
 module-1,prompt,m1-watch,What would you like to keep observing as the course continues?,,4
