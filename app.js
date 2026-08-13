@@ -10,7 +10,7 @@ Promise.all([
  fetchCSV('content/items.csv')
 ]).then(([settings,sections,items])=>{
  model=buildModel(settings,sections,items);
- render(); loadState(); restore(); attach(); openHash();
+ render(); loadState(); importHandoff(); restore(); attach(); openHash();
  $('#loading').hidden=true; $('#main').hidden=false;
 }).catch(err=>{
  $('#loading').hidden=true; const e=$('#error'); e.hidden=false;
@@ -250,6 +250,40 @@ function openHash(){
  const id=location.hash.slice(1);
  const valid=['welcome','summary',...model.sections.map(s=>s.section_id)];
  show(valid.includes(id)?id:'welcome',false);
+}
+
+
+function decodeHandoff(encoded){
+ const normalized=encoded.replace(/-/g,"+").replace(/_/g,"/");
+ const padded=normalized+"=".repeat((4-normalized.length%4)%4);
+ const binary=atob(padded);
+ const bytes=Uint8Array.from(binary,c=>c.charCodeAt(0));
+ return JSON.parse(new TextDecoder().decode(bytes));
+}
+
+function importHandoff(){
+ const raw=location.hash.startsWith("#handoff=")?location.hash.slice(9):"";
+ if(!raw)return;
+
+ try{
+  const data=decodeHandoff(raw);
+  if(data.source!=="climate-memory-evidence")return;
+
+  if(data.observation)state.entries["module-2__memory-observation"]=data.observation;
+  if(data.finding)state.entries["module-2__memory-data"]=data.finding;
+
+  state.entries["module-2__memory-supported"]=data.verdict==="supports";
+  state.entries["module-2__memory-mixed"]=data.verdict==="mixed";
+  state.entries["module-2__memory-unclear"]=data.verdict==="unclear";
+
+  state.updatedAt=new Date().toISOString();
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+
+  history.replaceState(null,"",location.pathname+location.search+"#module-2");
+ }catch(err){
+  console.warn("Journal handoff could not be imported.",err);
+  history.replaceState(null,"",location.pathname+location.search+"#module-2");
+ }
 }
 
 function loadState(){
