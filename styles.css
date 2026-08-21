@@ -120,3 +120,21 @@ footer{text-align:center;color:var(--muted);padding:1rem}
   margin-bottom:.2rem;
 }
 .handoff-detail{margin:-.5rem 0 .8rem;padding-left:.8rem;font-size:.92rem;color:#5f665f;font-style:italic}
+
+/* v15 calm Climate Memory summary palette */
+.handoff-question {
+  color:#513766!important;
+}
+.handoff-question::before {
+  color:#745C86!important;
+}
+.handoff-response {
+  color:#365E4B!important;
+  background:#F7FAF7!important;
+}
+.handoff-response::before {
+  color:#5F665F!important;
+}
+.handoff-detail {
+  color:#5F665F!important;
+}
