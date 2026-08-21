@@ -24,35 +24,9 @@
 <div id="loading" class="loading" role="status">Loading journal content…</div>
 <div id="error" class="error" hidden></div>
 
-<div class="garden-frame left" aria-hidden="true">
-  <svg viewBox="0 0 120 420">
-    <path d="M72 405C53 343 74 306 56 250C44 213 58 155 89 91C100 68 103 44 100 20" class="frame-stem"/>
-    <ellipse cx="62" cy="335" rx="26" ry="12" transform="rotate(-28 62 335)" class="frame-leaf"/>
-    <ellipse cx="79" cy="288" rx="25" ry="12" transform="rotate(28 79 288)" class="frame-leaf2"/>
-    <ellipse cx="51" cy="230" rx="24" ry="11" transform="rotate(-32 51 230)" class="frame-leaf"/>
-    <ellipse cx="80" cy="178" rx="23" ry="10" transform="rotate(30 80 178)" class="frame-leaf2"/>
-    <circle cx="99" cy="74" r="11" class="frame-flower"/>
-    <circle cx="85" cy="63" r="10" class="frame-flower"/>
-    <circle cx="111" cy="60" r="10" class="frame-flower"/>
-    <circle cx="99" cy="58" r="7" class="frame-center"/>
-  </svg>
-</div>
-<div class="garden-frame right" aria-hidden="true">
-  <svg viewBox="0 0 120 420">
-    <path d="M48 404C63 350 44 315 64 259C77 221 61 161 34 94C24 68 20 44 23 20" class="frame-stem"/>
-    <ellipse cx="57" cy="343" rx="26" ry="12" transform="rotate(28 57 343)" class="frame-leaf2"/>
-    <ellipse cx="40" cy="295" rx="25" ry="12" transform="rotate(-28 40 295)" class="frame-leaf"/>
-    <ellipse cx="70" cy="237" rx="24" ry="11" transform="rotate(32 70 237)" class="frame-leaf2"/>
-    <ellipse cx="41" cy="181" rx="23" ry="10" transform="rotate(-30 41 181)" class="frame-leaf"/>
-    <circle cx="23" cy="76" r="11" class="frame-flower2"/>
-    <circle cx="37" cy="64" r="10" class="frame-flower2"/>
-    <circle cx="11" cy="62" r="10" class="frame-flower2"/>
-    <circle cx="23" cy="60" r="7" class="frame-center"/>
-  </svg>
-</div>
 <main id="main" class="app" hidden>
   <aside class="sidebar" aria-label="My field notebook">
-    <div class="notebook-badge" aria-hidden="true">📓</div><h2>My field notebook</h2>
+    <h2>My field notebook</h2>
     <p>Select an activity. Entries save automatically in this browser.</p>
     <nav id="notebook-nav"></nav>
     <div class="privacy"><strong>Private and ungraded</strong><br>Your entries are not sent to Canvas.</div>
@@ -64,7 +38,7 @@
       <select id="section-picker"></select>
     </div>
 
-    <section id="welcome" class="panel welcome-panel"><span class="paper-tape" aria-hidden="true"></span>
+    <section id="welcome" class="panel">
       <p class="kicker">Welcome</p>
       <h2 id="welcome-heading"></h2>
       <div id="welcome-text"></div>
@@ -88,9 +62,6 @@
       <div id="summary-content"></div>
     </section>
 
-    <div class="field-note-divider" aria-hidden="true">
-      <span>✿</span><span class="line"></span><span>☀</span><span class="line"></span><span>✿</span>
-    </div>
     <section class="panel tools">
       <h2>Journal tools</h2>
       <div class="button-row">

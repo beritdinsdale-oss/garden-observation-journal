@@ -2,7 +2,7 @@
 'use strict';
 const STORAGE_KEY='gardenJournal.csv.v3';
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
-let model, pages=[], state={entries:{},photos:{},updatedAt:null}, active='welcome', saveTimer;
+let model, pages=[], state={entries:{},photos:{},handoffs:{},updatedAt:null}, active='welcome', saveTimer;
 
 Promise.all([
  fetchCSV('content/settings.csv'),
@@ -172,6 +172,9 @@ function renderPage(page,index){
   if(page.note){
    const note=el('div','activity-note');note.append(el('p','',page.note));s.append(note)
   }
+  if(page.id==='module-2--memory-evidence-heading'){
+   const h=el('div','memory-handoff');h.id='memory-handoff';s.append(h);
+  }
  }else{
   s.append(el('p','kicker',sec.page_label),el('h2','',page.title));
   if(sec.introduction)s.append(el('p','intro',sec.introduction));
@@ -316,22 +319,22 @@ function importHandoff(){
  try{
   const data=decodeHandoff(raw);
   if(data.source!=='climate-memory-evidence')return;
-
-  const pageId='module-2--memory-evidence-heading';
-  if(data.observation)state.entries[`${pageId}__memory-observation`]=data.observation;
-  if(data.finding)state.entries[`${pageId}__memory-data`]=data.finding;
-  state.entries[`${pageId}__memory-supported`]=data.verdict==='supports';
-  state.entries[`${pageId}__memory-mixed`]=data.verdict==='mixed';
-  state.entries[`${pageId}__memory-unclear`]=data.verdict==='unclear';
+  state.handoffs=state.handoffs||{};
+  state.handoffs.climateMemory={
+   observation:data.observation||'',
+   patternAnswers:Array.isArray(data.patternAnswers)?data.patternAnswers:[],
+   notes:data.notes||'',
+   verdict:data.verdict||'',
+   changed:data.changed||''
+  };
   state.updatedAt=new Date().toISOString();
   localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
-  history.replaceState(null,'',location.pathname+location.search+'#'+pageId)
+  history.replaceState(null,'',location.pathname+location.search+'#module-2--memory-evidence-heading')
  }catch(err){
   console.warn('Journal handoff could not be imported.',err);
   history.replaceState(null,'',location.pathname+location.search)
  }
 }
-
 function loadState(){
  try{const x=JSON.parse(localStorage.getItem(STORAGE_KEY));if(x)state=x}catch{}
 }
@@ -340,9 +343,30 @@ function restore(){
   const v=state.entries[i.dataset.key];
   i.type==='checkbox'?i.checked=!!v:i.value=v||'';grow(i)
  });
- Object.keys(state.photos).forEach(showPhoto);statuses();
+ renderMemoryHandoff();
+  Object.keys(state.photos).forEach(showPhoto);statuses();
  setStatus(state.updatedAt?'Saved '+new Date(state.updatedAt).toLocaleString():'Saved on this device')
 }
+function renderMemoryHandoff(){
+ const wrap=$('#memory-handoff');if(!wrap)return;
+ const d=state.handoffs&&state.handoffs.climateMemory;
+ wrap.innerHTML='';
+ if(!d){
+  const empty=el('div','handoff-empty');
+  empty.append(el('strong','','Complete the Climate Memory + Evidence activity to fill this entry automatically.'),el('p','','Your observation, guided data answers, optional notes, and final comparison will appear here.'));
+  wrap.append(empty);return;
+ }
+ const card=el('div','handoff-card');
+ const obs=el('section','handoff-section');obs.append(el('h3','','Observation I investigated'),el('p','handoff-observation',d.observation||'—'));card.append(obs);
+ const ans=el('section','handoff-section');ans.append(el('h3','','What I found in the climate record'));
+ (d.patternAnswers||[]).forEach((a,i)=>{const q=el('div','handoff-answer');q.append(el('p','handoff-question',`${i+1}. ${a.question}`),el('p','handoff-response',a.answer||'—'));ans.append(q)});card.append(ans);
+ const notes=el('section','handoff-section');notes.append(el('h3','','My notes'),el('p','handoff-notes',d.notes||'No notes added.'));card.append(notes);
+ const v={supports:'The climate record generally supports the observation',mixed:'The climate record partly supports it, but the story is more complicated',unclear:'The climate record does not clearly support the observation','more-info':'I need more information to tell'};
+ const c={yes:'Yes','a-little':'A little',no:'No','not-sure':'I’m not sure yet'};
+ const comp=el('section','handoff-section');comp.append(el('h3','','How the record compares with the observation'),el('p','handoff-response',v[d.verdict]||'—'),el('p','handoff-question','Did the data change how I think about the original observation?'),el('p','handoff-response',c[d.changed]||'—'));card.append(comp);
+ wrap.append(card)
+}
+
 function queueSave(){setStatus('Saving…');clearTimeout(saveTimer);saveTimer=setTimeout(save,350)}
 function save(){
  state.updatedAt=new Date().toISOString();
