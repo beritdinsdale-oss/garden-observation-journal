@@ -363,7 +363,7 @@ function renderMemoryHandoff(){
  const obs=el('section','handoff-section');obs.append(el('h3','','Observation I investigated'),el('p','handoff-observation',d.observation||'—'));card.append(obs);
  if(d.reflectionNotes){const rn=el('section','handoff-section');rn.append(el('h3','',d.path==='interview'?'Interview notes':'Reflection notes'),el('p','handoff-response',d.reflectionNotes));card.append(rn);}
  const ans=el('section','handoff-section');ans.append(el('h3','','What I found in the climate record'));
- (d.patternAnswers||[]).forEach((a,i)=>{const q=el('div','handoff-answer');q.append(el('p','handoff-question',`${i+1}. ${a.question}`),el('p','handoff-response',a.answer||'—'),...(a.detail?[el('p','handoff-detail',a.detail)]:[]));ans.append(q)});card.append(ans);
+ (d.patternAnswers||[]).forEach((a,i)=>{const q=el('div','handoff-answer');q.append(el('p','handoff-question',`${i+1}. ${a.question}`),el('p','handoff-response',a.answer||'—'));if(a.detail)q.append(el('p','handoff-detail',a.detail));ans.append(q)});card.append(ans);
  const notes=el('section','handoff-section');notes.append(el('h3','','My notes'),el('p','handoff-notes',d.notes||'No notes added.'));card.append(notes);
  const v={supports:'The climate record generally supports the observation',mixed:'The climate record partly supports it, but the story is more complicated',unclear:'The climate record does not clearly support the observation','more-info':'I need more information to tell'};
  const c={yes:'Yes','a-little':'A little',no:'No','not-sure':'I’m not sure yet'};

@@ -85,4 +85,38 @@ footer{text-align:center;color:var(--muted);padding:1rem}
 .handoff-question{font-weight:750;margin:.15rem 0;color:#42564c}.handoff-response{margin:.2rem 0 .45rem;padding:.55rem .7rem;background:#f2f7ef;border-radius:10px}.handoff-notes{white-space:pre-wrap;margin:.2rem 0}
 .handoff-observation{font-size:1.08rem;font-weight:750;margin:.2rem 0}.handoff-empty{background:#f4f7f2;border:1px dashed #9fb39f;border-radius:16px;padding:1rem 1.1rem}.handoff-empty p{margin:.4rem 0 0}
 
-.handoff-detail{margin:.2rem 0 0;font-size:.92rem;color:var(--muted,#5f665f);font-style:italic}
+/* Climate Memory + Evidence visual hierarchy */
+.handoff-question{
+  color:#513766;
+  font-weight:700;
+  line-height:1.45;
+  margin:.2rem 0;
+}
+.handoff-question::before{
+  content:"QUESTION";
+  display:block;
+  font-size:.7rem;
+  letter-spacing:.09em;
+  font-weight:800;
+  color:#745c86;
+  margin-bottom:.2rem;
+}
+.handoff-response{
+  color:#D73F09;
+  font-size:1.08rem;
+  font-weight:800;
+  margin:.35rem 0 .75rem;
+  padding:.7rem .8rem;
+  background:#fff8f4;
+  border-radius:10px;
+}
+.handoff-response::before{
+  content:"YOUR ANSWER";
+  display:block;
+  font-size:.7rem;
+  letter-spacing:.09em;
+  font-weight:800;
+  color:#6b6b6b;
+  margin-bottom:.2rem;
+}
+.handoff-detail{margin:-.5rem 0 .8rem;padding-left:.8rem;font-size:.92rem;color:#5f665f;font-style:italic}
